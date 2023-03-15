@@ -1,0 +1,41 @@
+<!-- 
+	Software Development - Web Development Class
+	Ilker Zengin
+	W08 Lab
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors Game</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<h1>Rock Paper Scissors Game</h1>
+	<p>Choose your weapon:</p>
+	<div class="choices">
+		<div class="choice" id="rock" onclick="play('rock')">Rock</div>
+		<div class="choice" id="paper" onclick="play('paper')">Paper</div>
+		<div class="choice" id="scissors" onclick="play('scissors')">Scissors</div>
+	</div>
+	<p id="result"></p>
+
+	<script>
+		function play(userChoice) {
+			// Generate a random computer choice
+			var choices = ["rock", "paper", "scissors"];
+			var computerChoice = choices[Math.floor(Math.random() * 3)];
+
+			// Determine the winner
+			if (userChoice === computerChoice) {
+				document.getElementById("result").innerHTML = "Tie!";
+			} else if ((userChoice === "rock" && computerChoice === "scissors") || 
+						(userChoice === "paper" && computerChoice === "rock") || 
+						(userChoice === "scissors" && computerChoice === "paper")) {
+				document.getElementById("result").innerHTML = "You win!";
+			} else {
+				document.getElementById("result").innerHTML = "Computer wins!";
+			}
+		}
+	</script>
+</body>
+</html
